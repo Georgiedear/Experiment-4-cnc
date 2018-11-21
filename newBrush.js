@@ -25,12 +25,9 @@ var eBrushRad;
 
 //size of the active area
 
-//THE FOLLOWING IS USED TO SETUP GEOLOCATION. THIS CODE WAS TAKEN FROM PUBNUB'S BLOG ARTICLE HERE 
-//https://www.pubnub.com/blog/2013-08-13-building-real-time-geolocation-apps-with-javascript-and-pubnub/
 
 //name used to sort your messages. used like a radio station. can be called anything
 var channelName = "Abstract";
-
 function setup() 
 {
   getAudioContext().resume();
@@ -43,13 +40,13 @@ function setup()
    brushR = floor(random(0,255));
   brushG = floor(random(0,255));
   brushB = floor(random(0,255));
-  transB = (70);
+  transB = floor()
   //eFill = floor(random(60, 255));
 
   diffS = 20;
   //bubbleStroke = ellipse(mouseX, mouseY, 50,50);
   //brushRad = floor(random(5,50));
-  eBrushRad = 40;
+  eBrushRad = 50;
    // initialize pubnub
   dataServer = new PubNub(
   {
@@ -87,10 +84,9 @@ function draw()
 
 function intBrush() {
 
-	  stroke(255,220);
-  strokeWeight(5);
+	  stroke(255);
+  strokeWeight(10);
    line(pmouseX, pmouseY, mouseX, mouseY);
-   noStroke();
 
 
 }
@@ -102,12 +98,11 @@ function mouseDragged() {
 
   //noFill();
 
-
   dataServer.publish(
     {
     	//channel object
       channel: channelName,
-/*
+
       message: 
       {       //set the message objects property name and value combos    
       
@@ -121,25 +116,10 @@ function mouseDragged() {
         b: brushB,
      // rad: brushRad, 
       }
-*/
+
         //new Brush Object
         
-      message: 
-      {
-     // eC1: eFill,
-      eX: mouseX,
-      eY: mouseY,
-      eRad: eBrushRad,
-      	r: brushR,
-        g: brushG,
-        b: brushB,
-        tB: transB,
-        pX: pmouseX,
-        pY: pmouseY,
-        sW: diffS, 
-
-
-      }
+      
 
 
 
@@ -161,21 +141,15 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
 
 //Line
 
- //lineBrush();
+ strokeWeight(inMessage.message.sW);
+ stroke(inMessage.message.r, inMessage.message.g, inMessage.message.b);
+ line(inMessage.message.pX, inMessage.message.pY, inMessage.message.x, inMessage.message.y);
+
  //Ellipse
 
-push();
 
-fill(inMessage.message.r,inMessage.message.g,inMessage.message.b, inMessage.message.tB);  //read the color values from the message
-noStroke();
-
-ellipse(inMessage.message.eX, inMessage.message.eY, inMessage.message.eRad, inMessage.message.eRad); 
-pop();
   }
-  
 }
-
-
 
 function whoisconnected(connectionInfo)
 {
