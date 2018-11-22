@@ -92,6 +92,9 @@ function intBrush() {
    line(pmouseX, pmouseY, mouseX, mouseY);
    noStroke();
 
+// fill(brushR,brushG,brushB, 50);  //read the color values from the message
+
+//ellipse(mouseX, mouseY, eBrushRad, eBrushRad); 
 
 }
 
@@ -153,26 +156,7 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
   // draw a circle on the screen if the user is someone else
   if(inMessage.channel == channelName)
   {
-    //noStroke();
-    //fill(inMessage.message.r, inMessage.message.g, inMessage.message.b);  //read the color values from the message
-  //  ellipse(inMessage.message.x, inMessage.message.y, inMessage.message.rad, inMessage.message.rad);  //read the size and postion data and draw the ellipse
-   //stroke(inMessage.message.r, inMessage.message.g, inMessage.message.b);
-
-
-//Line
-
- //lineBrush();
- //Ellipse
- /*
-push();
-
-fill(inMessage.message.r,inMessage.message.g,inMessage.message.b, inMessage.message.tB);  //read the color values from the message
-noStroke();
-
-ellipse(inMessage.message.eX, inMessage.message.eY, inMessage.message.eRad, inMessage.message.eRad); 
-pop();
-
-*/
+   
   }
   
 }

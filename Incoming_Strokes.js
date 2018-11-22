@@ -5,7 +5,7 @@
 
 // server variables
 var dataServer;
-var pubKey = 'pub-c-3557ba95-f7b0-4d5e-9ac6-d83253a53e79'; 
+//var pubKey = 'pub-c-3557ba95-f7b0-4d5e-9ac6-d83253a53e79'; 
 var subKey = 'sub-c-3debba58-ebcf-11e8-ba08-f2848cfa311c';
 
 //variables for the size and color of your circle
@@ -53,7 +53,7 @@ function setup()
    // initialize pubnub
   dataServer = new PubNub(
   {
-    publish_key   : pubKey,  //get these from the pubnub account online
+   // publish_key   : pubKey,  //get these from the pubnub account online
     subscribe_key : subKey,  
     ssl: true  //enables a secure connection. This option has to be used if using the OCAD webspace
   });
@@ -85,65 +85,13 @@ function draw()
 
 
 
-function intBrush() {
-
-	  stroke(255,195);
-  strokeWeight(5);
-   line(pmouseX, pmouseY, mouseX, mouseY);
-   noStroke();
-
-
-}
 
 ///uses built in mouseDragged function to send the data to the pubnub server
 function touchMoved() {
   // Send Data to the server to draw it in all other canvases
- intBrush();
 
   //noFill();
 
-
-  dataServer.publish(
-    {
-    	//channel object
-      channel: channelName,
-/*
-      message: 
-      {       //set the message objects property name and value combos    
-      
-        x: mouseX,
-        y: mouseY,
-        pX: pmouseX,
-        pY: pmouseY,
-        sW: diffS, 
-        r: brushR,
-        g: brushG,
-        b: brushB,
-     // rad: brushRad, 
-      }
-*/
-        //new Brush Object
-        
-      message: 
-      {
-     // eC1: eFill,
-      eX: mouseX,
-      eY: mouseY,
-      eRad: eBrushRad,
-      	r: brushR,
-        g: brushG,
-        b: brushB,
-        tB: transB,
-        pX: pmouseX,
-        pY: pmouseY,
-        sW: diffS, 
-
-
-      }
-
-
-
-    });
 
 }
 
@@ -163,7 +111,7 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
 
  //lineBrush();
  //Ellipse
- /*
+ 
 push();
 
 fill(inMessage.message.r,inMessage.message.g,inMessage.message.b, inMessage.message.tB);  //read the color values from the message
@@ -172,7 +120,7 @@ noStroke();
 ellipse(inMessage.message.eX, inMessage.message.eY, inMessage.message.eRad, inMessage.message.eRad); 
 pop();
 
-*/
+
   }
   
 }

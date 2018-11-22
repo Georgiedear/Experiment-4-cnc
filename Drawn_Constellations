@@ -6,7 +6,7 @@
 // server variables
 var dataServer;
 var pubKey = 'pub-c-3557ba95-f7b0-4d5e-9ac6-d83253a53e79'; 
-var subKey = 'sub-c-3debba58-ebcf-11e8-ba08-f2848cfa311c';
+//var subKey = 'sub-c-3debba58-ebcf-11e8-ba08-f2848cfa311c';
 
 //variables for the size and color of your circle
 
@@ -98,7 +98,7 @@ function intBrush() {
 ///uses built in mouseDragged function to send the data to the pubnub server
 function touchMoved() {
   // Send Data to the server to draw it in all other canvases
- intBrush();
+ //intBrush();
 
   //noFill();
 
