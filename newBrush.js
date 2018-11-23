@@ -40,7 +40,7 @@ function setup()
    brushR = floor(random(0,255));
   brushG = floor(random(0,255));
   brushB = floor(random(0,255));
-  transB = floor()
+  transB = floor(20);
   //eFill = floor(random(60, 255));
 
   diffS = 20;

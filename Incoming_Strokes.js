@@ -19,7 +19,7 @@ var diffS;
 var eFill;
 var eBrushRad;
 
-//var bubbleStroke;
+//var bubbleStroke = [];
 //var strokeUp; //up stroke
 //var strokeDia; //diagonal stroke
 
@@ -74,8 +74,9 @@ function setup()
   background(0);
 
 
-}
+  //BUBBLE ARRAY
 
+}
 function draw() 
 {
 	
@@ -111,14 +112,15 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
 
  //lineBrush();
  //Ellipse
- 
-push();
+ //bubbleStroke.[i].display();
+ //bubbleStroke.[i].fade();
 
 fill(inMessage.message.r,inMessage.message.g,inMessage.message.b, inMessage.message.tB);  //read the color values from the message
 noStroke();
-
 ellipse(inMessage.message.eX, inMessage.message.eY, inMessage.message.eRad, inMessage.message.eRad); 
-pop();
+
+fill(random(inMessage.message.eX), random(inMessage.message.eY), inMessage.message.b, inMessage.message.triP);
+triangle(inMessage.message.eX, inMessage.message.eY, inMessage.message.pX+20, inMessage.message.pY,inMessage.message.eX+25, inMessage.message.eY);
 
 
   }

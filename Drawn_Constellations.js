@@ -43,7 +43,13 @@ function setup()
    brushR = floor(random(0,255));
   brushG = floor(random(0,255));
   brushB = floor(random(0,255));
+
+  tBrush = floor(random(0,255));
+
+  //Opacity For brushes:
+
   transB = (80);
+  transParT = (95);
   //eFill = floor(random(60, 255));
 
   diffS = 20;
@@ -91,6 +97,8 @@ function intBrush() {
   strokeWeight(5);
    line(pmouseX, pmouseY, mouseX, mouseY);
    noStroke();
+
+   
 
 // fill(brushR,brushG,brushB, 50);  //read the color values from the message
 
@@ -140,6 +148,8 @@ function touchMoved() {
         pX: pmouseX,
         pY: pmouseY,
         sW: diffS, 
+        triB: tBrush,
+        triP: transParT,
 
 
       }
