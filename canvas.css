@@ -1,12 +1,11 @@
-body html {
+body, html {
 	 position:absolute;
 	width:100%;
+   background-color: #272727;
+
 		
 }
 
 
 
-#mainContainer {
-	position:relative;
 
-}

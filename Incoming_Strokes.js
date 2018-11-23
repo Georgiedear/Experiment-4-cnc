@@ -1,7 +1,7 @@
 //ABSTRACT by Georgina Yeboah
-//An Application that translates intital strokes to an installation displaying 
-// a variety of strokes in different orinetations. 
-//Some parts of code used from the CC18 experiment 4/P5/PunNub/Example 5 Common Canvas Dots 
+//An Application that translates intital simple strokes to a digital online canvas in real-time. 
+//Some parts of the code were used from the CC18 experiment 4/P5/PunNub/Example 5 Common Canvas Dots by
+//Kate Hartman and Nick Puckett. 
 
 // server variables
 var dataServer;
@@ -10,23 +10,6 @@ var subKey = 'sub-c-3debba58-ebcf-11e8-ba08-f2848cfa311c';
 
 //variables for the size and color of your circle
 
-/*
-var brushR;
-var brushG;
-var brushB;
-//var brushRad;
-var diffS;
-var eFill;
-var eBrushRad;
-*/
-//var bubbleStroke = [];
-//var strokeUp; //up stroke
-//var strokeDia; //diagonal stroke
-
-//size of the active area
-
-//THE FOLLOWING IS USED TO SETUP GEOLOCATION. THIS CODE WAS TAKEN FROM PUBNUB'S BLOG ARTICLE HERE 
-//https://www.pubnub.com/blog/2013-08-13-building-real-time-geolocation-apps-with-javascript-and-pubnub/
 
 //name used to sort your messages. used like a radio station. can be called anything
 var channelName = "Abstract";
@@ -37,7 +20,6 @@ function setup()
  canvas = createCanvas(windowWidth/2, windowHeight);
   
 canvas.position(windowWidth/4,0);
-
   //pick your random size + color
   
    brushR = floor(random(0,255));
@@ -66,10 +48,6 @@ canvas.position(windowWidth/4,0);
 
   //draw a frame that is the same color as your brush
 
-  //stroke(255);
-  //strokeWeight(10);
-  // line(pmouseX, pmouseY, mouseX, mouseY);
-  //noFill();
  
   background(0);
 
@@ -79,7 +57,7 @@ canvas.position(windowWidth/4,0);
 }
 function draw() 
 {
-	
+
 ///all the drawing is happing in the readIncoming function
 
 }
@@ -87,18 +65,11 @@ function draw()
 
 
 
-///uses built in mouseDragged function to send the data to the pubnub server
-function touchMoved() {
-  // Send Data to the server to draw it in all other canvases
-
-  //noFill();
-
-
-}
 
 function readIncoming(inMessage) //when new data comes in it triggers this function, 
 {                               // this works becsuse we subscribed to the channel in setup()
-  
+  canvas.id('background');
+
   // draw a circle on the screen if the user is someone else
   if(inMessage.channel == channelName)
   {
@@ -114,15 +85,17 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
  //Ellipse
  //bubbleStroke.[i].display();
  //bubbleStroke.[i].fade();
-push();
-//translate(windowWidth/2, windowHeight/2 );
+//push();
+//translate(300, 0);
 fill(inMessage.message.r,inMessage.message.g,inMessage.message.b, inMessage.message.tB);  //read the color values from the message
 noStroke();
 ellipse(inMessage.message.eX, inMessage.message.eY, inMessage.message.eRad, inMessage.message.eRad); 
 
 fill(random(inMessage.message.eX), random(inMessage.message.eY), inMessage.message.b, inMessage.message.triP);
 triangle(inMessage.message.eX, inMessage.message.eY, inMessage.message.pX+20, inMessage.message.pY,inMessage.message.eX+25, inMessage.message.eY);
-pop();
+//pop();
+
+
 
   }
   

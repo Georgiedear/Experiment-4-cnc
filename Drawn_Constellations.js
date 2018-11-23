@@ -1,7 +1,7 @@
 //ABSTRACT by Georgina Yeboah
-//An Application that translates intital strokes to an installation displaying 
-// a variety of strokes in different orinetations. 
-//Some parts of code used from the CC18 experiment 4/P5/PunNub/Example 5 Common Canvas Dots 
+//An Application that translates intital simple strokes to a digital online canvas in real-time. 
+//Some parts of the code were used from the CC18 experiment 4/P5/PunNub/Example 5 Common Canvas Dots by
+//Kate Hartman and Nick Puckett. 
 
 // server variables
 var dataServer;
