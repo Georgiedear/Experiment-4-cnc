@@ -30,13 +30,13 @@ var eBrushRad;
 
 //name used to sort your messages. used like a radio station. can be called anything
 var channelName = "Abstract";
-
+var canvas;
 function setup() 
 {
   getAudioContext().resume();
-  createCanvas(windowWidth, windowHeight);
+ canvas = createCanvas(windowWidth, windowHeight);
   
-  
+canvas.position(0,0);
   
   //pick your random size + color
   
@@ -48,14 +48,14 @@ function setup()
 
   //Opacity For brushes:
 
-  transB = (80);
+  transB = (75);
   transParT = (95);
   //eFill = floor(random(60, 255));
 
   diffS = 20;
   //bubbleStroke = ellipse(mouseX, mouseY, 50,50);
   //brushRad = floor(random(5,50));
-  eBrushRad = 40;
+  eBrushRad = 50;
    // initialize pubnub
   dataServer = new PubNub(
   {
@@ -157,7 +157,12 @@ function touchMoved() {
 
 
     });
+return false;
+}
 
+function windowResized() {
+
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function readIncoming(inMessage) //when new data comes in it triggers this function, 
@@ -168,7 +173,7 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
   {
    
   }
-  
+   
 }
 
 

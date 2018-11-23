@@ -10,7 +10,7 @@ var subKey = 'sub-c-3debba58-ebcf-11e8-ba08-f2848cfa311c';
 
 //variables for the size and color of your circle
 
-
+/*
 var brushR;
 var brushG;
 var brushB;
@@ -18,7 +18,7 @@ var brushB;
 var diffS;
 var eFill;
 var eBrushRad;
-
+*/
 //var bubbleStroke = [];
 //var strokeUp; //up stroke
 //var strokeDia; //diagonal stroke
@@ -30,14 +30,14 @@ var eBrushRad;
 
 //name used to sort your messages. used like a radio station. can be called anything
 var channelName = "Abstract";
-
+var canvas;
 function setup() 
 {
   getAudioContext().resume();
-  createCanvas(windowWidth, windowHeight);
+ canvas = createCanvas(windowWidth/2, windowHeight);
   
-  
-  
+canvas.position(windowWidth/4,0);
+
   //pick your random size + color
   
    brushR = floor(random(0,255));
@@ -114,16 +114,18 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
  //Ellipse
  //bubbleStroke.[i].display();
  //bubbleStroke.[i].fade();
-
+push();
+//translate(windowWidth/2, windowHeight/2 );
 fill(inMessage.message.r,inMessage.message.g,inMessage.message.b, inMessage.message.tB);  //read the color values from the message
 noStroke();
 ellipse(inMessage.message.eX, inMessage.message.eY, inMessage.message.eRad, inMessage.message.eRad); 
 
 fill(random(inMessage.message.eX), random(inMessage.message.eY), inMessage.message.b, inMessage.message.triP);
 triangle(inMessage.message.eX, inMessage.message.eY, inMessage.message.pX+20, inMessage.message.pY,inMessage.message.eX+25, inMessage.message.eY);
-
+pop();
 
   }
+  
   
 }
 
