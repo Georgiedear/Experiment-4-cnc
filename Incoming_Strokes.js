@@ -17,9 +17,9 @@ var canvas;
 function setup() 
 {
   getAudioContext().resume();
- canvas = createCanvas(windowWidth/2, windowHeight);
+ canvas = createCanvas(850, windowHeight);
   
-canvas.position(windowWidth/4,0);
+canvas.position(220,0);
   //pick your random size + color
   
    brushR = floor(random(0,255));
