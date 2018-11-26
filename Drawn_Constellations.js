@@ -1,7 +1,7 @@
 //ABSTRACT by Georgina Yeboah
 //An Application that translates intital simple strokes to a digital online canvas in real-time. 
 //Some parts of the code were used from the CC18 experiment 4/P5/PunNub/Example 5 Common Canvas Dots by
-//Kate Hartman and Nick Puckett. 
+//Kate Hartman and Nick Puckett at OCAD University. 
 
 // server variables
 var dataServer;
@@ -25,8 +25,7 @@ var eBrushRad;
 
 //size of the active area
 
-//THE FOLLOWING IS USED TO SETUP GEOLOCATION. THIS CODE WAS TAKEN FROM PUBNUB'S BLOG ARTICLE HERE 
-//https://www.pubnub.com/blog/2013-08-13-building-real-time-geolocation-apps-with-javascript-and-pubnub/
+
 
 //name used to sort your messages. used like a radio station. can be called anything
 var channelName = "Abstract";

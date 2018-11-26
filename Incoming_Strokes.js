@@ -1,7 +1,7 @@
 //ABSTRACT by Georgina Yeboah
 //An Application that translates intital simple strokes to a digital online canvas in real-time. 
 //Some parts of the code were used from the CC18 experiment 4/P5/PunNub/Example 5 Common Canvas Dots by
-//Kate Hartman and Nick Puckett. 
+//Kate Hartman and Nick Puckett at OCAD University. 
 
 // server variables
 var dataServer;
@@ -73,27 +73,22 @@ function readIncoming(inMessage) //when new data comes in it triggers this funct
   // draw a circle on the screen if the user is someone else
   if(inMessage.channel == channelName)
   {
+    //OLD CODE FROM EXAMPLE
     //noStroke();
     //fill(inMessage.message.r, inMessage.message.g, inMessage.message.b);  //read the color values from the message
   //  ellipse(inMessage.message.x, inMessage.message.y, inMessage.message.rad, inMessage.message.rad);  //read the size and postion data and draw the ellipse
    //stroke(inMessage.message.r, inMessage.message.g, inMessage.message.b);
 
+//MY CODE FOR DRAWING
 
-//Line
-
- //lineBrush();
- //Ellipse
- //bubbleStroke.[i].display();
- //bubbleStroke.[i].fade();
-//push();
-//translate(300, 0);
+//Ellipses 
 fill(inMessage.message.r,inMessage.message.g,inMessage.message.b, inMessage.message.tB);  //read the color values from the message
 noStroke();
 ellipse(inMessage.message.eX, inMessage.message.eY, inMessage.message.eRad, inMessage.message.eRad); 
 
+//Triangles
 fill(random(inMessage.message.eX), random(inMessage.message.eY), inMessage.message.b, inMessage.message.triP);
 triangle(inMessage.message.eX, inMessage.message.eY, inMessage.message.pX+20, inMessage.message.pY,inMessage.message.eX+25, inMessage.message.eY);
-//pop();
 
 
 
